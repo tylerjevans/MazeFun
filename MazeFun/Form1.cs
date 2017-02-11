@@ -25,5 +25,25 @@ namespace MazeFun
             var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
             GenerateButton.Text = "finished";
         }
+        public Bitmap TileToImage(mazeTile Tile)
+        {
+            int connections = 0;
+            if (Tile.left) connections++;
+            if (Tile.up) connections++;
+            if (Tile.down) connections++;
+            if (Tile.right) connections++;
+            switch (connections)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                default://should be seperate case
+                    return new Bitmap("F:/tyler/Documents/Visual Studio 2015/Projects/CloudBasket/MazeFun/MazeFun/Tiles/simple/4way.png");
+            }
+        }
     }
 }
