@@ -47,21 +47,22 @@ namespace MazeFun
     class MazePower
     {
         private Random RandSeed = new Random();
-        private mazeTile[,] emptyMaze(int width, int height)
+        private void emptyMaze(ref mazeTile[,] input)
         {
-            mazeTile[,] result = new mazeTile[width, height];
-            for (int q = 0; q < width; q++)
+            int w = input.GetLength(0);
+            int h = input.GetLength(1);
+            for (int q = 0; q < w; q++)
             {
-                for (int i = 0; i < height; i++)
+                for (int i = 0; i < h; i++)
                 {
-                    result[width,height] = new mazeTile(0);
+                    input[q,i] = new mazeTile(0);
                 }
             }
-            return result;
         }
         public mazeTile[,] makeMazeTiles(int width, int height)
         {
-            mazeTile[,] result = emptyMaze(width, height);
+            mazeTile[,] result = new mazeTile[width,height];
+            emptyMaze(ref result);
             result[0, 0].maze = result[0,0].down = result[0, 0].right = true;
             result[1, 0].maze = result[1, 0].left = true;
             result[0, 1].maze = result[0, 1].up = true;

@@ -22,7 +22,7 @@ namespace MazeFun
         private void GenerateButton_Click(object sender, EventArgs e)
         {
             MazePower TestPower = new MazePower();
-            var test = TestPower.makeMazeTiles(x, y);
+            var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
             GenerateButton.Text = "finished";
         }
     }
