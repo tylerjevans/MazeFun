@@ -59,7 +59,7 @@ namespace MazeFun
             }
             return result;
         }
-        mazeTile[,] makeMazeTiles(int width, int height)
+        public mazeTile[,] makeMazeTiles(int width, int height)
         {
             mazeTile[,] result = emptyMaze(width, height);
             result[0, 0].maze = result[0,0].down = result[0, 0].right = true;
@@ -72,24 +72,31 @@ namespace MazeFun
             do
             {
                 List<Move> PossibleAddons = new List<Move>();
+                Spot DeadSpot = new Spot(-1,-1);
                 foreach (var spot in activeSpots) // creating list of possible moves
                 {
+                    bool useful = false;
                     if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)
                     {
+                        useful = true;
                         PossibleAddons.Add(new Move(spot, new Spot(spot.width + 1, spot.height)));
                     }
                     if (spot.width - 1 > -1 && !result[spot.width - 1, spot.height].maze)
                     {
+                        useful = true;
                         PossibleAddons.Add(new Move(spot, new Spot(spot.width - 1, spot.height)));
                     }
                     if (spot.height + 1 < height && !result[spot.width, spot.height + 1].maze)
                     {
+                        useful = true;
                         PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height + 1)));
                     }
                     if (spot.height - 1 > -1 && !result[spot.width, spot.height - 1].maze)
                     {
+                        useful = true;
                         PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height - 1)));
                     }
+                    if (!useful & DeadSpot.width == -1) DeadSpot = spot;
                 }
                 Move ChosenMove = PossibleAddons[RandSeed.Next(PossibleAddons.Count)];
                 switch ((ChosenMove.from.width - ChosenMove.to.width) + (2 * (ChosenMove.from.height - ChosenMove.to.height)))
@@ -117,8 +124,27 @@ namespace MazeFun
                 emptytiles--;
                 activeSpots.Remove(ChosenMove.from);
                 activeSpots.Add(ChosenMove.to);
+                if (emptytiles > 0 & DeadSpot.width != -1)
+                {
+                    activeSpots.Remove(DeadSpot);
+                    List<Spot> CouldAdd = new List<Spot>();
+                    for (int x = 0; x < width; x++)
+                    {
+                        for (int y = 0; y < height; y++)
+                        {
+                            if (result[x, y].maze && (
+                                ((((x + 1) < width) && !result[x + 1, y].maze)) |
+                                ((((x - 1) > -1) && !result[x - 1, y].maze)) |
+                                ((((y + 1) < height) && !result[x, y + 1].maze)) |
+                                ((((y - 1) > -1) && !result[x, y - 1].maze))))
+                            {
+                                CouldAdd.Add(new Spot(x,y));
+                            }
+                        }
+                    }
+                    activeSpots.Add(CouldAdd[RandSeed.Next(CouldAdd.Count)]);
+                }
             } while (emptytiles > 0);
-
             return result;
         } 
     }

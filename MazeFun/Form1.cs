@@ -21,7 +21,9 @@ namespace MazeFun
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MazePower TestPower = new MazePower();
+            var test = TestPower.makeMazeTiles(x, y);
+            GenerateButton.Text = "finished";
         }
     }
 }
