@@ -16,6 +16,16 @@ namespace MazeFun
             height = y;
         }
     }
+
+    struct Move
+    {
+        public Spot from, to;
+        public Move(Spot from, Spot to)
+        {
+            this.from = from;
+            this.to = to;
+        }
+    }
     struct mazeTile
     {
         public bool up, down, left, right, maze;
@@ -36,7 +46,8 @@ namespace MazeFun
 
     class MazePower
     {
-        mazeTile[,] emptyMaze(int width, int height)
+        private Random RandSeed = new Random();
+        private mazeTile[,] emptyMaze(int width, int height)
         {
             mazeTile[,] result = new mazeTile[width, height];
             for (int q = 0; q < width; q++)
@@ -52,9 +63,36 @@ namespace MazeFun
         {
             mazeTile[,] result = emptyMaze(width, height);
             result[0, 0].maze = result[0,0].down = result[0, 0].right = true;
+            result[1, 0].maze = result[1, 0].left = true;
+            result[0, 1].maze = result[0, 1].up = true;
             List<Spot> activeSpots = new List<Spot>();
             activeSpots.Add(new Spot(1,0));
             activeSpots.Add(new Spot(0, 1));
+            int emptytiles = (width*height) - 3;
+            do
+            {
+                List<Move> PossibleAddons = new List<Move>();
+                foreach (var spot in activeSpots)
+                {
+                    if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)
+                    {
+                        PossibleAddons.Add(new Move(spot, new Spot(spot.width + 1, spot.height)));
+                    }
+                    if (spot.width - 1 > -1 && !result[spot.width - 1, spot.height].maze)
+                    {
+                        PossibleAddons.Add(new Move(spot, new Spot(spot.width - 1, spot.height)));
+                    }
+                    if (spot.height + 1 < height && !result[spot.width, spot.height + 1].maze)
+                    {
+                        PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height + 1)));
+                    }
+                    if (spot.height - 1 > -1 && !result[spot.width, spot.height - 1].maze)
+                    {
+                        PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height - 1)));
+                    }
+                }
+                Move ChosenMove = PossibleAddons[RandSeed.Next(PossibleAddons.Count)];
+            } while (emptytiles > 0);
 
             return result;
         } 
