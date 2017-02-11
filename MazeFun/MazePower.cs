@@ -72,7 +72,7 @@ namespace MazeFun
             do
             {
                 List<Move> PossibleAddons = new List<Move>();
-                foreach (var spot in activeSpots)
+                foreach (var spot in activeSpots) // creating list of possible moves
                 {
                     if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)
                     {
@@ -92,6 +92,31 @@ namespace MazeFun
                     }
                 }
                 Move ChosenMove = PossibleAddons[RandSeed.Next(PossibleAddons.Count)];
+                switch ((ChosenMove.from.width - ChosenMove.to.width) + (2 * (ChosenMove.from.height - ChosenMove.to.height)))
+                {
+                    case 1:
+                        result[ChosenMove.from.width, ChosenMove.from.height].right = true;
+                        result[ChosenMove.to.width, ChosenMove.to.height].left = true;
+                        break;
+                    case -1:
+                        result[ChosenMove.from.width, ChosenMove.from.height].left = true;
+                        result[ChosenMove.to.width, ChosenMove.to.height].right = true;
+                        break;
+                    case 2:
+                        result[ChosenMove.from.width, ChosenMove.from.height].up = true;
+                        result[ChosenMove.to.width, ChosenMove.to.height].down = true;
+                        break;
+                    case -2:
+                        result[ChosenMove.from.width, ChosenMove.from.height].down = true;
+                        result[ChosenMove.to.width, ChosenMove.to.height].up = true;
+                        break;
+                    default:
+                        break;
+                }
+                result[ChosenMove.to.width, ChosenMove.to.height].maze = true;
+                emptytiles--;
+                activeSpots.Remove(ChosenMove.from);
+                activeSpots.Add(ChosenMove.to);
             } while (emptytiles > 0);
 
             return result;
