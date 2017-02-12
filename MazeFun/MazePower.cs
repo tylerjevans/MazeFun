@@ -28,7 +28,7 @@ namespace MazeFun
             this.to = to;
         }
     }
-    struct mazeTile
+    public struct mazeTile
     {
         public bool up, down, left, right, maze;
 
@@ -101,32 +101,37 @@ namespace MazeFun
                     }
                     if (!useful & DeadSpot.width == -1) DeadSpot = spot;
                 }
-                Move ChosenMove = PossibleAddons[RandSeed.Next(PossibleAddons.Count)];
-                switch ((ChosenMove.from.width - ChosenMove.to.width) + (2 * (ChosenMove.from.height - ChosenMove.to.height)))
+                if (PossibleAddons.Count > 0)
                 {
-                    case 1:
-                        result[ChosenMove.from.width, ChosenMove.from.height].right = true;
-                        result[ChosenMove.to.width, ChosenMove.to.height].left = true;
-                        break;
-                    case -1:
-                        result[ChosenMove.from.width, ChosenMove.from.height].left = true;
-                        result[ChosenMove.to.width, ChosenMove.to.height].right = true;
-                        break;
-                    case 2:
-                        result[ChosenMove.from.width, ChosenMove.from.height].up = true;
-                        result[ChosenMove.to.width, ChosenMove.to.height].down = true;
-                        break;
-                    case -2:
-                        result[ChosenMove.from.width, ChosenMove.from.height].down = true;
-                        result[ChosenMove.to.width, ChosenMove.to.height].up = true;
-                        break;
-                    default:
-                        break;
+                    Move ChosenMove = PossibleAddons[RandSeed.Next(PossibleAddons.Count)];
+                    switch (
+                        (ChosenMove.from.width - ChosenMove.to.width) +
+                        (2*(ChosenMove.from.height - ChosenMove.to.height)))
+                    {
+                        case 1:
+                            result[ChosenMove.from.width, ChosenMove.from.height].right = true;
+                            result[ChosenMove.to.width, ChosenMove.to.height].left = true;
+                            break;
+                        case -1:
+                            result[ChosenMove.from.width, ChosenMove.from.height].left = true;
+                            result[ChosenMove.to.width, ChosenMove.to.height].right = true;
+                            break;
+                        case 2:
+                            result[ChosenMove.from.width, ChosenMove.from.height].up = true;
+                            result[ChosenMove.to.width, ChosenMove.to.height].down = true;
+                            break;
+                        case -2:
+                            result[ChosenMove.from.width, ChosenMove.from.height].down = true;
+                            result[ChosenMove.to.width, ChosenMove.to.height].up = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    result[ChosenMove.to.width, ChosenMove.to.height].maze = true;
+                    emptytiles--;
+                    activeSpots.Remove(ChosenMove.from);
+                    activeSpots.Add(ChosenMove.to);
                 }
-                result[ChosenMove.to.width, ChosenMove.to.height].maze = true;
-                emptytiles--;
-                activeSpots.Remove(ChosenMove.from);
-                activeSpots.Add(ChosenMove.to);
                 if (emptytiles > 0 & DeadSpot.width != -1)
                 {
                     activeSpots.Remove(DeadSpot);

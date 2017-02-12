@@ -35,11 +35,11 @@ namespace MazeFun
             switch (connections)
             {
                 case 1:
-                    break;
+                    //break;
                 case 2:
-                    break;
+                    //break;
                 case 3:
-                    break;
+                    //break;
                 case 4:
                 default://should be seperate case
                     return new Bitmap("F:/tyler/Documents/Visual Studio 2015/Projects/CloudBasket/MazeFun/MazeFun/Tiles/simple/4way.png");
