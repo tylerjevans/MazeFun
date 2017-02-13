@@ -22,16 +22,20 @@ namespace MazeFun
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-            MazePower TestPower = new MazePower();
-            var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
-            Bitmap Maze = imagetoMaze(test);
-            Maze.Save("MazeTest.png", ImageFormat.Png);
-
-            GenerateButton.Text = "finished";
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter += "maze format | *.png";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                MazePower TestPower = new MazePower();
+                var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
+                Bitmap Maze = imagetoMaze(test);
+                Maze.Save(dialog.OpenFile(), ImageFormat.Png);
+                //Maze.Save("MazeTest.png", ImageFormat.Png);
+                GenerateButton.Text = "finished";
+            }
         }
         public Bitmap TileToImage(mazeTile Tile)
         {
-            int connections = 0;
             if (Tile.left)
             {
                 if (Tile.up)
