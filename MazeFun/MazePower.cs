@@ -78,28 +78,32 @@ namespace MazeFun
                 Spot DeadSpot = new Spot(-1,-1);
                 foreach (var spot in activeSpots) // creating list of possible moves
                 {
-                    bool useful = false;
-                    if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)
+                    if (spot.width != width & spot.height != height)
                     {
-                        useful = true;
-                        PossibleAddons.Add(new Move(spot, new Spot(spot.width + 1, spot.height)));
+                        bool useful = false;
+                        if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)
+                        {
+                            useful = true;
+                            PossibleAddons.Add(new Move(spot, new Spot(spot.width + 1, spot.height)));
+                        }
+                        if (spot.width - 1 > -1 && !result[spot.width - 1, spot.height].maze)
+                        {
+                            useful = true;
+                            PossibleAddons.Add(new Move(spot, new Spot(spot.width - 1, spot.height)));
+                        }
+                        if (spot.height + 1 < height && !result[spot.width, spot.height + 1].maze)
+                        {
+                            useful = true;
+                            PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height + 1)));
+                        }
+                        if (spot.height - 1 > -1 && !result[spot.width, spot.height - 1].maze)
+                        {
+                            useful = true;
+                            PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height - 1)));
+                        }
+                        if (!useful & DeadSpot.width == -1) DeadSpot = spot;
                     }
-                    if (spot.width - 1 > -1 && !result[spot.width - 1, spot.height].maze)
-                    {
-                        useful = true;
-                        PossibleAddons.Add(new Move(spot, new Spot(spot.width - 1, spot.height)));
-                    }
-                    if (spot.height + 1 < height && !result[spot.width, spot.height + 1].maze)
-                    {
-                        useful = true;
-                        PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height + 1)));
-                    }
-                    if (spot.height - 1 > -1 && !result[spot.width, spot.height - 1].maze)
-                    {
-                        useful = true;
-                        PossibleAddons.Add(new Move(spot, new Spot(spot.width, spot.height - 1)));
-                    }
-                    if (!useful & DeadSpot.width == -1) DeadSpot = spot;
+                    else DeadSpot = spot;
                 }
                 if (PossibleAddons.Count > 0)
                 {
@@ -109,12 +113,12 @@ namespace MazeFun
                         (2*(ChosenMove.from.height - ChosenMove.to.height)))
                     {
                         case 1:
-                            result[ChosenMove.from.width, ChosenMove.from.height].right = true;
-                            result[ChosenMove.to.width, ChosenMove.to.height].left = true;
-                            break;
-                        case -1:
                             result[ChosenMove.from.width, ChosenMove.from.height].left = true;
                             result[ChosenMove.to.width, ChosenMove.to.height].right = true;
+                            break;
+                        case -1:
+                            result[ChosenMove.from.width, ChosenMove.from.height].right = true;
+                            result[ChosenMove.to.width, ChosenMove.to.height].left = true;
                             break;
                         case 2:
                             result[ChosenMove.from.width, ChosenMove.from.height].up = true;
@@ -140,7 +144,7 @@ namespace MazeFun
                     {
                         for (int y = 0; y < height; y++)
                         {
-                            if (result[x, y].maze && (
+                            if ((!(x == width & y == height)) & result[x, y].maze && (
                                 ((((x + 1) < width) && !result[x + 1, y].maze)) |
                                 ((((x - 1) > -1) && !result[x - 1, y].maze)) |
                                 ((((y + 1) < height) && !result[x, y + 1].maze)) |

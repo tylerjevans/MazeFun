@@ -25,7 +25,7 @@ namespace MazeFun
             MazePower TestPower = new MazePower();
             var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
             Bitmap Maze = imagetoMaze(test);
-            Maze.Save("MazeTest", ImageFormat.Png);
+            Maze.Save("MazeTest.png", ImageFormat.Png);
 
             GenerateButton.Text = "finished";
         }
@@ -38,7 +38,7 @@ namespace MazeFun
                 {
                     if (Tile.right)
                     {
-                        if (Tile.down) return new Bitmap("4way.png"); // left, up, right, down
+                        if (Tile.down) return new Bitmap(Properties.Resources._4way); // left, up, right, down
                         else
                         {
                             Bitmap tileresult = new Bitmap(Properties.Resources._3way);

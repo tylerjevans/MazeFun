@@ -50,7 +50,7 @@
             // 
             this.HeightValue.Location = new System.Drawing.Point(117, 58);
             this.HeightValue.Maximum = new decimal(new int[] {
-            10,
+            60,
             0,
             0,
             0});
@@ -81,7 +81,7 @@
             // 
             this.WidthValue.Location = new System.Drawing.Point(117, 86);
             this.WidthValue.Maximum = new decimal(new int[] {
-            10,
+            60,
             0,
             0,
             0});
