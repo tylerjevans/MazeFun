@@ -78,7 +78,7 @@ namespace MazeFun
                 Spot DeadSpot = new Spot(-1,-1);
                 foreach (var spot in activeSpots) // creating list of possible moves
                 {
-                    if (!(spot.width == width & spot.height == height))
+                    if (!(spot.width == width - 1 & spot.height == height - 1))
                     {
                         bool useful = false;
                         if (spot.width + 1 < width && !result[spot.width + 1, spot.height].maze)

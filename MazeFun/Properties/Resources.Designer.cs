@@ -103,19 +103,30 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap straight {
+        internal static System.Drawing.Bitmap finish {
             get {
-                object obj = ResourceManager.GetObject("straight", resourceCulture);
+                object obj = ResourceManager.GetObject("finish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static string threeway {
+        internal static System.Drawing.Bitmap start {
             get {
-                return ResourceManager.GetString("threeway", resourceCulture);
+                object obj = ResourceManager.GetObject("start", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap straight {
+            get {
+                object obj = ResourceManager.GetObject("straight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

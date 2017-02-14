@@ -34,7 +34,7 @@ namespace MazeFun
                 GenerateButton.Text = "finished";
             }
         }
-        public Bitmap TileToImage(mazeTile Tile)
+        public Bitmap TileToImage(mazeTile Tile, bool special = false)
         {
             if (Tile.left)
             {
@@ -143,16 +143,26 @@ namespace MazeFun
         {
             int width = mazeImage.GetLength(0);
             int height = mazeImage.GetLength(1);
-            Bitmap[,] mazeDisplay = new Bitmap[width,height];
+            Bitmap[,] mazeDisplay = new Bitmap[width,height]; // maze display needs to be converted to ref list with rotation counter, save memory
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
-                    mazeDisplay[x,y] = TileToImage(mazeImage[x, y]);
+                    if (x == 0 & y == 0) mazeDisplay[0, 0] = new Bitmap(Properties.Resources.start);
+                    else if (x == width - 1 & y == height - 1)
+                    {
+                        var temp = new Bitmap(Properties.Resources.finish);
+                        if (mazeImage[x, y].left) temp.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                        else temp.RotateFlip(RotateFlipType.Rotate270FlipX);
+                        mazeDisplay[x, y] = temp;
+                    }
+                        
+                    else
+                        mazeDisplay[x, y] = TileToImage(mazeImage[x, y]);
                 }
             }
             int offset = mazeDisplay[0, 0].Width; // assuming same with all tiles and square
-            Bitmap result = new Bitmap(offset * width, offset * height);
+            var result = new Bitmap(offset * width, offset * height);
             using (var canvas = Graphics.FromImage(result))
             {
                 for (int y = 0; y < height; y++)
