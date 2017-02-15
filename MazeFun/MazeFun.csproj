@@ -88,16 +88,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Interactive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Interactive.Designer.cs">
+      <DependentUpon>Interactive.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InteractiveMaze.cs" />
+    <Compile Include="MazeStyle.cs" />
     <Compile Include="MazePower.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Interactive.resx">
+      <DependentUpon>Interactive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
