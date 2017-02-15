@@ -63,9 +63,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3way {
+        internal static System.Drawing.Bitmap Simple3way {
             get {
-                object obj = ResourceManager.GetObject("_3way", resourceCulture);
+                object obj = ResourceManager.GetObject("Simple3way", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _4way {
+        internal static System.Drawing.Bitmap Simple4way {
             get {
-                object obj = ResourceManager.GetObject("_4way", resourceCulture);
+                object obj = ResourceManager.GetObject("Simple4way", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap corner {
+        internal static System.Drawing.Bitmap Simplecorner {
             get {
-                object obj = ResourceManager.GetObject("corner", resourceCulture);
+                object obj = ResourceManager.GetObject("Simplecorner", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap end {
+        internal static System.Drawing.Bitmap Simpleend {
             get {
-                object obj = ResourceManager.GetObject("end", resourceCulture);
+                object obj = ResourceManager.GetObject("Simpleend", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap finish {
+        internal static System.Drawing.Bitmap Simplefinish {
             get {
-                object obj = ResourceManager.GetObject("finish", resourceCulture);
+                object obj = ResourceManager.GetObject("Simplefinish", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap start {
+        internal static System.Drawing.Bitmap Simplestart {
             get {
-                object obj = ResourceManager.GetObject("start", resourceCulture);
+                object obj = ResourceManager.GetObject("Simplestart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace MazeFun.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap straight {
+        internal static System.Drawing.Bitmap Simplestraight {
             get {
-                object obj = ResourceManager.GetObject("straight", resourceCulture);
+                object obj = ResourceManager.GetObject("Simplestraight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
