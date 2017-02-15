@@ -49,11 +49,6 @@
             // HeightValue
             // 
             this.HeightValue.Location = new System.Drawing.Point(117, 58);
-            this.HeightValue.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
             this.HeightValue.Minimum = new decimal(new int[] {
             2,
             0,
@@ -80,11 +75,6 @@
             // WidthValue
             // 
             this.WidthValue.Location = new System.Drawing.Point(117, 86);
-            this.WidthValue.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
             this.WidthValue.Minimum = new decimal(new int[] {
             2,
             0,
@@ -108,7 +98,7 @@
             this.GenerateButton.Text = "Generate Maze";
             this.GenerateButton.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,7 +109,7 @@
             this.Controls.Add(this.HeightValue);
             this.Controls.Add(this.HeightText);
             this.MinimumSize = new System.Drawing.Size(100, 100);
-            this.Name = "Form1";
+            this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).EndInit();

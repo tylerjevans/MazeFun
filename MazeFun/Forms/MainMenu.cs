@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MazeFun.Properties;
 
 namespace MazeFun
 {
@@ -54,23 +55,23 @@ namespace MazeFun
 
         private void LoadTiles(string theme = "Simple")
         {
-            end = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "end"));
-            end90 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "end"));
-            end180 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "end"));
-            end270 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "end"));
-            corner = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "corner"));
-            corner90 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "corner"));
-            corner180 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "corner"));
-            corner270 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "corner"));
-            _3way = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "3way"));
-            _3way90 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "3way"));
-            _3way180 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "3way"));
-            _3way270 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "3way"));
-            straight = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "straight"));
-            straight90 = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "straight"));
-            cross = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "4way"));
-            start = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "start"));
-            finish = new Bitmap(Properties.Resources.ResourceManager.GetString(theme + "finish"));
+            end = (Bitmap)Resources.ResourceManager.GetObject(theme + "end");
+            end90 = (Bitmap)Resources.ResourceManager.GetObject(theme + "end");
+            end180 = (Bitmap)Resources.ResourceManager.GetObject(theme + "end");
+            end270 = (Bitmap)Resources.ResourceManager.GetObject(theme + "end");
+            corner = (Bitmap)Resources.ResourceManager.GetObject(theme + "corner");
+            corner90 = (Bitmap)Resources.ResourceManager.GetObject(theme + "corner");
+            corner180 = (Bitmap)Resources.ResourceManager.GetObject(theme + "corner");
+            corner270 = (Bitmap)Resources.ResourceManager.GetObject(theme + "corner");
+            _3way = (Bitmap)Resources.ResourceManager.GetObject(theme + "3way");
+            _3way90 = (Bitmap)Resources.ResourceManager.GetObject(theme + "3way");
+            _3way180 = (Bitmap)Resources.ResourceManager.GetObject(theme + "3way");
+            _3way270 = (Bitmap)Resources.ResourceManager.GetObject(theme + "3way");
+            straight = (Bitmap)Resources.ResourceManager.GetObject(theme + "straight");
+            straight90 = (Bitmap)Resources.ResourceManager.GetObject(theme + "straight");
+            cross = (Bitmap)Resources.ResourceManager.GetObject(theme + "4way");
+            start = (Bitmap)Resources.ResourceManager.GetObject(theme + "start");
+            finish = (Bitmap)Resources.ResourceManager.GetObject(theme + "finish");
 
             end90.RotateFlip(RotateFlipType.Rotate90FlipNone);
             corner90.RotateFlip(RotateFlipType.Rotate90FlipNone);
