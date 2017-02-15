@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MazeFun.Forms;
 
 namespace MazeFun
 {
@@ -19,6 +20,13 @@ namespace MazeFun
         {
             InitializeComponent();
             GenerateButton.Click += GenerateButton_Click;
+            InteractiveModeButton.Click += InteractiveModeButton_Click;
+        }
+
+        private void InteractiveModeButton_Click(object sender, EventArgs e)
+        {
+            var interact = new Interactive();
+            interact.ShowDialog();
         }
 
         private void GenerateButton_Click(object sender, EventArgs e)

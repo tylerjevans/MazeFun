@@ -33,6 +33,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.WidthValue = new System.Windows.Forms.NumericUpDown();
             this.GenerateButton = new System.Windows.Forms.Button();
+            this.InteractiveModeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthValue)).BeginInit();
             this.SuspendLayout();
@@ -95,14 +96,24 @@
             this.GenerateButton.Name = "GenerateButton";
             this.GenerateButton.Size = new System.Drawing.Size(167, 23);
             this.GenerateButton.TabIndex = 4;
-            this.GenerateButton.Text = "Generate Maze";
+            this.GenerateButton.Text = "Generate and Save";
             this.GenerateButton.UseVisualStyleBackColor = true;
+            // 
+            // InteractiveModeButton
+            // 
+            this.InteractiveModeButton.Location = new System.Drawing.Point(70, 143);
+            this.InteractiveModeButton.Name = "InteractiveModeButton";
+            this.InteractiveModeButton.Size = new System.Drawing.Size(167, 23);
+            this.InteractiveModeButton.TabIndex = 5;
+            this.InteractiveModeButton.Text = "Interactive Mode";
+            this.InteractiveModeButton.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 220);
+            this.Controls.Add(this.InteractiveModeButton);
             this.Controls.Add(this.GenerateButton);
             this.Controls.Add(this.WidthValue);
             this.Controls.Add(this.textBox1);
@@ -126,6 +137,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown WidthValue;
         private System.Windows.Forms.Button GenerateButton;
+        private System.Windows.Forms.Button InteractiveModeButton;
     }
 }
 
