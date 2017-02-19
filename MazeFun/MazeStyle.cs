@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Windows.Forms.VisualStyles;
 using MazeFun.Properties;
 
 namespace MazeFun
@@ -103,11 +104,15 @@ namespace MazeFun
             // if (Tile.right) {}
             return end; // wrong default for testing
         }
+        public int Offset()
+        {
+            return cross.Width;
+        }
         public Bitmap imagetoMaze(mazeTile[,] mazeImage)
         {
             int width = mazeImage.GetLength(0);
             int height = mazeImage.GetLength(1);
-            int offset = cross.Width; // assuming same with all tiles and square
+            int offset = Offset(); // assuming same with all tiles and square
             var result = new Bitmap(offset * width, offset * height);
             using (var canvas = Graphics.FromImage(result))
             {

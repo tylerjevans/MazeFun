@@ -15,6 +15,12 @@ namespace MazeFun.Forms
         private mazeTile[,] tileMap;
         private MazeStyle Drawer;
         private int x, y;
+        private Button[,] LiveTiles;
+
+        void TileGrider(object sender, LabelEditEventArgs e)
+        {
+            
+        }
         public Interactive()
         {
             InitializeComponent();
@@ -23,15 +29,15 @@ namespace MazeFun.Forms
             tileMap = TestPower.makeMazeTiles(Convert.ToInt32(5), Convert.ToInt32(5));
             x = tileMap.GetLength(0);
             y = tileMap.GetLength(1);
-
-            BigGridView.ColumnCount = x;
-            BigGridView.RowCount = y;
+            int delta = Drawer.Offset();
+            LiveTiles = new Button[x,y];
 
             for (int l = 0; l < x; l++)
             {
                 for (int m = 0; m < y; m++)
                 {
-                    BigGridView.BackgroundImage = Drawer.TileToImage(tileMap[l, m]);
+                    LiveTiles[l,m] = new Button();
+                    LiveTiles[l,m].SetBounds(l * delta, m * delta, delta,delta);
                 }
             }
         }
