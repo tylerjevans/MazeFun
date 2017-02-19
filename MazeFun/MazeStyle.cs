@@ -23,6 +23,7 @@ namespace MazeFun
             cross,
             start,
             finish;
+            public Bitmap blank;
 
         private string theme;
 
@@ -50,6 +51,8 @@ namespace MazeFun
             cross = (Bitmap)Resources.ResourceManager.GetObject(theme + "4way");
             start = (Bitmap)Resources.ResourceManager.GetObject(theme + "start");
             finish = (Bitmap)Resources.ResourceManager.GetObject(theme + "finish");
+
+            blank = new Bitmap(Offset(),Offset());
 
             end90.RotateFlip(RotateFlipType.Rotate90FlipNone);
             corner90.RotateFlip(RotateFlipType.Rotate90FlipNone);
