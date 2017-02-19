@@ -16,11 +16,6 @@ namespace MazeFun.Forms
         private MazeStyle Drawer;
         private int x, y;
         private Button[,] LiveTiles;
-
-        void TileGrider(object sender, LabelEditEventArgs e)
-        {
-            
-        }
         public Interactive()
         {
             InitializeComponent();
@@ -36,10 +31,15 @@ namespace MazeFun.Forms
             {
                 for (int m = 0; m < y; m++)
                 {
-                    LiveTiles[l,m] = new Button();
-                    LiveTiles[l,m].SetBounds(l * delta, m * delta, delta,delta);
-                    LiveTiles[l, m].BackgroundImage = Drawer.TileToImage(tileMap[l, m]);
-                    this.Controls.Add(LiveTiles[l,m]);
+                    int width = l;
+                    int height = m;
+                    LiveTiles[width,height] = new Button();
+                    LiveTiles[width, height].SetBounds(l * delta, m * delta, delta,delta);
+                    LiveTiles[width, height].Click += (sender, args) =>
+                    {
+                        LiveTiles[width,height].BackgroundImage = Drawer.TileToImage(tileMap[width, height]);
+                    };
+                    this.Controls.Add(LiveTiles[width, height]);
                 }
             }
         }
