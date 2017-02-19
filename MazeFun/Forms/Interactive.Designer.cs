@@ -39,7 +39,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(471, 335);
             this.Name = "Interactive";
-            this.Text = "Interactive";
+            this.Text = "Interactive Maze";
             this.ResumeLayout(false);
 
         }

@@ -122,7 +122,7 @@
             this.MinimumSize = new System.Drawing.Size(100, 100);
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Maze Menu";
             ((System.ComponentModel.ISupportInitialize)(this.HeightValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.WidthValue)).EndInit();
             this.ResumeLayout(false);
