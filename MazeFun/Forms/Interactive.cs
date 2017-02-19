@@ -38,6 +38,8 @@ namespace MazeFun.Forms
                 {
                     LiveTiles[l,m] = new Button();
                     LiveTiles[l,m].SetBounds(l * delta, m * delta, delta,delta);
+                    LiveTiles[l, m].BackgroundImage = Drawer.TileToImage(tileMap[l, m]);
+                    this.Controls.Add(LiveTiles[l,m]);
                 }
             }
         }
