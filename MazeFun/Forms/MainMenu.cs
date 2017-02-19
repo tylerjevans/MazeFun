@@ -25,7 +25,7 @@ namespace MazeFun
 
         private void InteractiveModeButton_Click(object sender, EventArgs e)
         {
-            var interact = new Interactive();
+            var interact = new Interactive(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
             interact.ShowDialog();
         }
 

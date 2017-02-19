@@ -14,22 +14,19 @@ namespace MazeFun.Forms
     {
         private mazeTile[,] tileMap;
         private MazeStyle Drawer;
-        private int x, y;
         private Button[,] LiveTiles;
-        public Interactive()
+        public Interactive(int w, int h)
         {
             InitializeComponent();
             Drawer = new MazeStyle();
             MazePower TestPower = new MazePower();
-            tileMap = TestPower.makeMazeTiles(Convert.ToInt32(5), Convert.ToInt32(5));
-            x = tileMap.GetLength(0);
-            y = tileMap.GetLength(1);
+            tileMap = TestPower.makeMazeTiles(w, h);
             int delta = Drawer.Offset();
-            LiveTiles = new Button[x,y];
+            LiveTiles = new Button[w,h];
 
-            for (int l = 0; l < x; l++)
+            for (int l = 0; l < w; l++)
             {
-                for (int m = 0; m < y; m++)
+                for (int m = 0; m < h; m++)
                 {
                     int width = l;
                     int height = m;
