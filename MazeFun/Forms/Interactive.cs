@@ -65,5 +65,9 @@ namespace MazeFun.Forms
                 LiveTiles[column + 1, row].Enabled = true;
             }
         }
+        protected override Point ScrollToControl(Control activeControl)
+        {
+            return this.AutoScrollPosition;
+        }
     }
 }
