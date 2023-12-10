@@ -50,6 +50,11 @@
             // HeightValue
             // 
             this.HeightValue.Location = new System.Drawing.Point(117, 58);
+            this.HeightValue.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.HeightValue.Minimum = new decimal(new int[] {
             2,
             0,
@@ -76,6 +81,11 @@
             // WidthValue
             // 
             this.WidthValue.Location = new System.Drawing.Point(117, 86);
+            this.WidthValue.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.WidthValue.Minimum = new decimal(new int[] {
             2,
             0,
