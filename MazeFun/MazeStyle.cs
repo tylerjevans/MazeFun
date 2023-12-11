@@ -1,6 +1,6 @@
 using System.Drawing;
-using System.Windows.Forms.VisualStyles;
 using MazeFun.Properties;
+using MazeFun.Processing;
 
 namespace MazeFun
 {
