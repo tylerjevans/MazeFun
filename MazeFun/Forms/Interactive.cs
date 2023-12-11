@@ -19,8 +19,7 @@ namespace MazeFun.Forms
         {
             InitializeComponent();
             Drawer = new MazeStyle();
-            MazePower TestPower = new MazePower();
-            tileMap = TestPower.makeMazeTiles(w, h);
+            tileMap = MazePower.makeMazeTiles(w, h);
             int delta = Drawer.Offset();
             LiveTiles = new Button[w,h];
 

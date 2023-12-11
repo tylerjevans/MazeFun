@@ -36,8 +36,7 @@ namespace MazeFun
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 Drawer = new MazeStyle();
-                MazePower TestPower = new MazePower();
-                var test = TestPower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
+                mazeTile[,] test = MazePower.makeMazeTiles(Convert.ToInt32(WidthValue.Value), Convert.ToInt32(HeightValue.Value));
                 Bitmap Maze = Drawer.imagetoMaze(test);
                 Maze.Save(dialog.OpenFile(), ImageFormat.Png);
                 GenerateButton.Text = "finished";

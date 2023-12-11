@@ -104,8 +104,9 @@ namespace MazeFun
                 if (Tile.right) return corner90; //down,right
                 return end90; // down
             }
-            // if (Tile.right) {}
-            return end; // wrong default for testing
+            if (Tile.right) { return end; } //right
+            throw new System.Exception();
+            //add check for start or finish
         }
         public int Offset()
         {

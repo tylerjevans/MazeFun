@@ -46,10 +46,10 @@ namespace MazeFun
         }
     }
 
-    class MazePower
+    public static class MazePower
     {
-        private Random RandSeed = new Random();
-        private void emptyMaze(ref mazeTile[,] input)
+        
+        private static void emptyMaze(ref mazeTile[,] input)
         {
             int w = input.GetLength(0);
             int h = input.GetLength(1);
@@ -61,8 +61,9 @@ namespace MazeFun
                 }
             }
         }
-        public mazeTile[,] makeMazeTiles(int width, int height)
+        public static mazeTile[,] makeMazeTiles(int width, int height)
         {
+            Random RandSeed = new Random();
             mazeTile[,] result = new mazeTile[width,height];
             emptyMaze(ref result);
             result[0, 0].maze = result[0,0].down = result[0, 0].right = true;
